@@ -53,8 +53,8 @@ jobs:
             --set appName="createtesttwo" \
             --set argonaut.env="dev" \
             --set argonaut.region="us-east-2" \
-            --set argonaut.cluster="arg-685" \
-            --set argonaut.serviceType="stateless" \
+            --set argonaut.cluster="dev" \
+            --set argonaut.serviceType="stateful" \
             --set argonaut.imageRegistry="ecr" \
             --type buildtime \
             --format dotenv > art-build-secrets.env
@@ -129,6 +129,6 @@ jobs:
             --set appName="createtesttwo" \
             --set argonaut.env="dev" \
             --set argonaut.region="us-east-2" \
-            --set argonaut.cluster="arg-685" \
-            --set argonaut.serviceType="stateless" \
+            --set argonaut.cluster="dev" \
+            --set argonaut.serviceType="stateful" \
             --set argonaut.imageRegistry="ecr" 

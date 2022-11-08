@@ -18,23 +18,23 @@ services:
 argonaut:
   env: dev
   region: us-east-2
-  cluster: arg-685
+  cluster: dev
   imageRegistry: ecr # corresponding to the image that is to be deployed
-  serviceType: "stateless" # One of {stateful, stateless, managed}
+  serviceType: "stateful" # One of {stateful, stateless, managed}
   repoName: battleships
 persistentStorage:
   []
 
 replicas: 1
 minReplicas: 1
-maxReplicas: 8
+maxReplicas: 1
 resources:
   requests:
-    cpu: "600m"
-    memory: "612M"
+    cpu: "620m"
+    memory: "312M"
   limits:
-    cpu: "1200m"
-    memory: "1520M"
+    cpu: "800m"
+    memory: "600M"
 #########################################################################################
 # Everything below this is optional and advanced configuration                          #
 # and irrelevant in most scenarios.                                                     #
