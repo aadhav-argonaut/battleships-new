@@ -30,11 +30,11 @@ minReplicas: 1
 maxReplicas: 1
 resources:
   requests:
-    cpu: "620m"
-    memory: "312M"
+    cpu: "640m"
+    memory: "512M"
   limits:
-    cpu: "800m"
-    memory: "600M"
+    cpu: "1000m"
+    memory: "1500M"
 #########################################################################################
 # Everything below this is optional and advanced configuration                          #
 # and irrelevant in most scenarios.                                                     #
