@@ -28,7 +28,7 @@ persistentStorage:
 
 replicas: 1
 minReplicas: 1
-maxReplicas: 1
+maxReplicas: 8
 resources:
   requests:
     cpu: "500m"
