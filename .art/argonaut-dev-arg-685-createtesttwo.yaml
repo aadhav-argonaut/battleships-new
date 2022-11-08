@@ -11,6 +11,8 @@ services:
     external:
       hosts:
         - "createtesttwo.dev.argonaut.live"
+        - "bs-tushar-pctesting.pp.argonaut.live"
+        - "test-2.dev.argonaut.live"
       hostPort: 443
       paths: ["/"]
 
