@@ -30,7 +30,7 @@ minReplicas: 1
 maxReplicas: 8
 resources:
   requests:
-    cpu: "600m"
+    cpu: "500m"
     memory: "512M"
   limits:
     cpu: "1000m"
@@ -39,42 +39,6 @@ resources:
 # Everything below this is optional and advanced configuration                          #
 # and irrelevant in most scenarios.                                                     #
 #########################################################################################
-# Can only do one of the httpGet and exec handler methods for livenessProbe
-livenessProbe:
-  exec:
-    command:
-      - echo "hello"
-  # exec:
-  #   command:
-  #     - sh
-  #     - -c
-  #     - |
-  #       #!/usr/bin/env sh
-  #       test -f /etc/
-  failureThreshold: 0
-  initialDelaySeconds: 0
-  successThreshold: 0
-  periodSeconds: 0
-  timeoutSeconds: 0
-# Can only do one of the httpGet and exec handler methods for readinessProbe
-readinessProbe:
-  exec:
-    command:
-      - echo "hello"
-  # # Handler 2
-  # exec:
-  #   command:
-  #     - sh
-  #     - -c
-  #     - |
-  #       #!/usr/bin/env sh
-  #       test -f /etc/
-  # Common fields
-  failureThreshold: 0
-  initialDelaySeconds: 0
-  successThreshold: 0
-  periodSeconds: 0
-  timeoutSeconds: 0
 externalServices: []
 podAnnotations:
   {}
