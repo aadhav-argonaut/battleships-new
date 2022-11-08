@@ -6,11 +6,12 @@ imageTag: "latest"
 
 
 services:
-  - port: 80
-    protocol: "tls-terminated" # tls-passthrough, tls-terminated, tcp, http, grpc need to be supported
+  - port: 82
+    protocol: "http" # tls-passthrough, tls-terminated, tcp, http, grpc need to be supported
     external:
       hosts:
-        - "testone.dev.argonaut.live"
+        - "createtesttwo.dev.argonaut.live"
+        - "bs-tushar-pctesting.pp.argonaut.live"
       hostPort: 443
       paths: ["/"]
 
