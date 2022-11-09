@@ -12,40 +12,38 @@ services:
       hosts:
         - "createtesttwo.dev.argonaut.live"
         - "bs-tushar-pctesting.pp.argonaut.live"
-        - "domain.com"
       hostPort: 443
       paths: ["/"]
 
 argonaut:
   env: dev
   region: us-east-2
-  cluster: dev
+  cluster: arg-685
   imageRegistry: ecr # corresponding to the image that is to be deployed
-  serviceType: "stateful" # One of {stateful, stateless, managed}
+  serviceType: "stateless" # One of {stateful, stateless, managed}
   repoName: battleships
 persistentStorage:
   []
 
 replicas: 1
 minReplicas: 1
-maxReplicas: 1
+maxReplicas: 8
 resources:
   requests:
-    cpu: "620m"
-    memory: "512M"
+    cpu: "610m"
+    memory: "612M"
   limits:
-    cpu: "1000m"
-    memory: "1500M"
+    cpu: "1200m"
+    memory: "1520M"
 #########################################################################################
 # Everything below this is optional and advanced configuration                          #
 # and irrelevant in most scenarios.                                                     #
 #########################################################################################
 # Can only do one of the httpGet and exec handler methods for livenessProbe
 livenessProbe:
-  httpGet:
-    path: /
-    port: 82
-  
+  exec:
+    command:
+      - echo "hello world"
   # exec:
   #   command:
   #     - sh
@@ -60,10 +58,9 @@ livenessProbe:
   timeoutSeconds: 0
 # Can only do one of the httpGet and exec handler methods for readinessProbe
 readinessProbe:
-  httpGet:
-    path: /
-    port: 82
-  
+  exec:
+    command:
+      - echo "hello world"
   # # Handler 2
   # exec:
   #   command:
