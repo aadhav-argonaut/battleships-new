@@ -12,30 +12,29 @@ services:
       hosts:
         - "createtesttwo.dev.argonaut.live"
         - "bs-tushar-pctesting.pp.argonaut.live"
-        - "domain.com"
       hostPort: 443
       paths: ["/"]
 
 argonaut:
   env: dev
   region: us-east-2
-  cluster: dev
+  cluster: arg-685
   imageRegistry: ecr # corresponding to the image that is to be deployed
-  serviceType: "stateful" # One of {stateful, stateless, managed}
+  serviceType: "stateless" # One of {stateful, stateless, managed}
   repoName: battleships
 persistentStorage:
   []
 
 replicas: 1
 minReplicas: 1
-maxReplicas: 1
+maxReplicas: 8
 resources:
   requests:
-    cpu: "640m"
-    memory: "512M"
+    cpu: "600m"
+    memory: "612M"
   limits:
-    cpu: "1000m"
-    memory: "1500M"
+    cpu: "1200m"
+    memory: "1520M"
 #########################################################################################
 # Everything below this is optional and advanced configuration                          #
 # and irrelevant in most scenarios.                                                     #
