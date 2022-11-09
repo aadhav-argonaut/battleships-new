@@ -12,6 +12,7 @@ services:
       hosts:
         - "createtesttwo.dev.argonaut.live"
         - "bs-tushar-pctesting.pp.argonaut.live"
+        - "domain.com"
       hostPort: 443
       paths: ["/"]
 
