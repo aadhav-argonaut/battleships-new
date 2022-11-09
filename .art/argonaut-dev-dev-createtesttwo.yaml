@@ -31,7 +31,7 @@ minReplicas: 1
 maxReplicas: 1
 resources:
   requests:
-    cpu: "650m"
+    cpu: "620m"
     memory: "512M"
   limits:
     cpu: "1000m"
@@ -42,9 +42,10 @@ resources:
 #########################################################################################
 # Can only do one of the httpGet and exec handler methods for livenessProbe
 livenessProbe:
-  exec:
-    command:
-      - echo "hello world"
+  httpGet:
+    path: /
+    port: 82
+  
   # exec:
   #   command:
   #     - sh
@@ -59,9 +60,10 @@ livenessProbe:
   timeoutSeconds: 0
 # Can only do one of the httpGet and exec handler methods for readinessProbe
 readinessProbe:
-  exec:
-    command:
-      - echo "hello world"
+  httpGet:
+    path: /
+    port: 82
+  
   # # Handler 2
   # exec:
   #   command:
