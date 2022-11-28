@@ -6,7 +6,7 @@ imageTag: "latest"
 
 
 services:
-  - port: 9999
+  - port: 80
     protocol: "tls-terminated" # tls-passthrough, tls-terminated, tcp, http, grpc need to be supported
     external:
       hosts:
