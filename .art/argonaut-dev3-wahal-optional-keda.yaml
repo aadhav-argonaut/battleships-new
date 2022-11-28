@@ -40,6 +40,23 @@ resources:
 #########################################################################################
 
 # Keda configuration
+scaledObject: 
+  apiVersion: keda.sh/v1alpha1
+  kind: ScaledObject
+  metadata:
+    name: cron-scaledobject
+    namespace: default
+  spec:
+    scaleTargetRef:
+      name: optional-keda
+    triggers:
+      - type: cron
+        metadata:
+          timezone: Asia/Kolkata
+          start: 1 * * * *
+          end: 2 * * * *
+          desiredReplicas: "5"
+  
 externalServices: []
 podAnnotations:
   {}
