@@ -6,7 +6,7 @@ imageTag: "latest"
 
 
 services:
-  - port: 8080
+  - port: 80
     protocol: "tls-terminated" # tls-passthrough, tls-terminated, tcp, http, grpc need to be supported
     external:
       hosts:
@@ -40,6 +40,23 @@ resources:
 #########################################################################################
 
 # Keda configuration
+scaledObject: 
+    apiVersion: keda.sh/v1alpha1
+    kind: ScaledObject
+    metadata:
+      name: cron-scaledobject
+      namespace: default
+    spec:
+      scaleTargetRef:
+        name: hello-world
+      triggers:
+        - type: cron
+          metadata:
+            timezone: Asia/Kolkata
+            start: 1 * * * *
+            end: 2 * * * *
+            desiredReplicas: "5"
+    
 externalServices: []
 podAnnotations:
   {}
