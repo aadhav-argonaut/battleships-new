@@ -8,7 +8,7 @@ on:
       - "**"
       - .github/workflows/argonaut-dev3-hello-world.yaml
       - Dockerfile
-      - .art/argonaut-dev3-keda-hello-world.yaml
+      - .art/argonaut-dev3-wahal-hello-world.yaml
     tags:
       - "v*" # Push events to matching v*, i.e. v1.0, v20.15.10
   workflow_dispatch:
@@ -49,11 +49,11 @@ jobs:
       - name: Fetch BuildTime Secrets
         run: |
           art configure --key ${{ secrets.dev_ART_KEY }} --secret ${{ secrets.dev_ART_SECRET }}
-          art app envvars get -f .art/argonaut-dev3-keda-hello-world.yaml \
+          art app envvars get -f .art/argonaut-dev3-wahal-hello-world.yaml \
             --set appName="hello-world" \
             --set argonaut.env="dev3" \
             --set argonaut.region="us-east-2" \
-            --set argonaut.cluster="keda" \
+            --set argonaut.cluster="wahal" \
             --set argonaut.serviceType="stateless" \
             --set argonaut.imageRegistry="ecr" \
             --type buildtime \
@@ -121,7 +121,7 @@ jobs:
           chmod +x ./art
           sudo mv ./art /usr/local/bin/art
           art configure --key ${{ secrets.dev_ART_KEY }} --secret ${{ secrets.dev_ART_SECRET }}
-          art app deploy -f .art/argonaut-dev3-keda-hello-world.yaml \
+          art app deploy -f .art/argonaut-dev3-wahal-hello-world.yaml \
             --set image="170982004044.dkr.ecr.us-east-2.amazonaws.com/argonaut/hello-world" \
             --set 'labels.argonaut\.dev/git-provider'='github' \
             --set  argonaut.git-provider='github' \
@@ -129,6 +129,6 @@ jobs:
             --set appName="hello-world" \
             --set argonaut.env="dev3" \
             --set argonaut.region="us-east-2" \
-            --set argonaut.cluster="keda" \
+            --set argonaut.cluster="wahal" \
             --set argonaut.serviceType="stateless" \
             --set argonaut.imageRegistry="ecr" 
