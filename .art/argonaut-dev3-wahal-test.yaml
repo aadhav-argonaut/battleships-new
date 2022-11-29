@@ -49,6 +49,7 @@ scaledObject:
   spec:
     scaleTargetRef:
       name: test
+      namespace: wahal
     triggers:
       - type: cron
         metadata:
