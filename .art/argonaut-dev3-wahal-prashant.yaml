@@ -10,7 +10,7 @@ services:
     protocol: "tls-terminated" # tls-passthrough, tls-terminated, tcp, http, grpc need to be supported
     external:
       hosts:
-        - "test.wah.al"
+        - "asdasdasd.wah.al"
       hostPort: 443
       paths: ["/"]
 
@@ -40,23 +40,6 @@ resources:
 #########################################################################################
 
 # Keda configuration
-scaledObject: 
-  apiVersion: keda.sh/v1alpha1
-  kind: ScaledObject
-  metadata:
-    name: cron-scaledobject
-    namespace: wahal
-  spec:
-    scaleTargetRef:
-      name: prashant
-    triggers:
-      - type: cron
-        metadata:
-          timezone: Asia/Kolkata
-          start: 1 * * * *
-          end: 2 * * * *
-          desiredReplicas: "5"
-  
 externalServices: []
 podAnnotations:
   {}
