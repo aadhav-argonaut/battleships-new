@@ -10,7 +10,7 @@ services:
     protocol: "tls-terminated" # tls-passthrough, tls-terminated, tcp, http, grpc need to be supported
     external:
       hosts:
-        - "asdasdhjghasd.wah.al"
+        - "asdd.wah.al"
       hostPort: 443
       paths: ["/"]
 
