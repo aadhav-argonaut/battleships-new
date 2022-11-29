@@ -10,7 +10,7 @@ services:
     protocol: "tls-terminated" # tls-passthrough, tls-terminated, tcp, http, grpc need to be supported
     external:
       hosts:
-        - "asdasdasd.wah.al"
+        - "asdasdhjghasd.wah.al"
       hostPort: 443
       paths: ["/"]
 
@@ -50,12 +50,12 @@ scaledObject:
     scaleTargetRef:
       name: prashant
     triggers:
-      - type: cron
-        metadata:
-          timezone: Asia/Kolkata
-          start: 1 * * * *
-          end: 2 * * * *
+      - metadata:
           desiredReplicas: "5"
+          end: 2 * * * *
+          start: 1 * * * *
+          timezone: Asia/Kolkata
+        type: cron
   
 externalServices: []
 podAnnotations:
