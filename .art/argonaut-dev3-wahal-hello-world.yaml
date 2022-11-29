@@ -45,10 +45,11 @@ scaledObject:
   kind: ScaledObject
   metadata:
     name: cron-scaledobject
-    namespace: default
+    namespace: wahal
   spec:
     scaleTargetRef:
       name: hello-world
+      namespace: wahal
     triggers:
       - type: cron
         metadata:
