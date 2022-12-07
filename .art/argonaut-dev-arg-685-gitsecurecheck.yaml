@@ -31,6 +31,44 @@ resources:
 #########################################################################################
 
 # Keda configuration
+# Can only do one of the httpGet and exec handler methods for livenessProbe
+livenessProbe:
+  httpGet:
+    path: /
+    port: 80
+  
+  # exec:
+  #   command:
+  #     - sh
+  #     - -c
+  #     - |
+  #       #!/usr/bin/env sh
+  #       test -f /etc/
+  failureThreshold: 0
+  initialDelaySeconds: 0
+  successThreshold: 0
+  periodSeconds: 0
+  timeoutSeconds: 0
+# Can only do one of the httpGet and exec handler methods for readinessProbe
+readinessProbe:
+  httpGet:
+    path: /
+    port: 80
+  
+  # # Handler 2
+  # exec:
+  #   command:
+  #     - sh
+  #     - -c
+  #     - |
+  #       #!/usr/bin/env sh
+  #       test -f /etc/
+  # Common fields
+  failureThreshold: 0
+  initialDelaySeconds: 0
+  successThreshold: 0
+  periodSeconds: 0
+  timeoutSeconds: 0
 externalServices: []
 podAnnotations:
   {}
@@ -174,4 +212,4 @@ extraEnvs: []
 #  - name: MY_ENVIRONMENT_VAR
 #    value: the_value_goes_here
 
-# Generated at 2022-12-07 08:28:31.785004352 +0000 UTC
+# Generated at 2022-12-07 08:31:33.147440106 +0000 UTC
