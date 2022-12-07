@@ -1,4 +1,4 @@
-name: "Deploy gitsecuredtest"
+name: "Deploy gitsecuredtest - dev"
 
 on:
   push:
