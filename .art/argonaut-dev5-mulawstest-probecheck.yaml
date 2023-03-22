@@ -1,7 +1,7 @@
 ---
 version: "v1"
 appName: "probecheck"
-image: "170982004044.dkr.ecr.us-east-1.amazonaws.com/argonaut/probecheck" 
+image: "170982004044.dkr.ecr.us-east-1.amazonaws.com/argonaut/probecheck"
 imageTag: "latest"
 
 
@@ -17,7 +17,7 @@ persistentStorage:
   []
 resources:
   requests:
-    cpu: "500m"
+    cpu: "100m"
     memory: "512M"
   limits:
     cpu: "1000m"
@@ -37,6 +37,7 @@ livenessProbe:
       - |
         #!/usr/bin/env sh
         echo true
+      
   # exec:
   #   command:
   #     - sh
@@ -58,6 +59,7 @@ readinessProbe:
       - |
         #!/usr/bin/env sh
         echo true
+      
   # # Handler 2
   # exec:
   #   command:
@@ -217,4 +219,4 @@ extraEnvs: []
 #  - name: MY_ENVIRONMENT_VAR
 #    value: the_value_goes_here
 
-# Generated at 2023-03-16 07:36:15.698142933 +0000 UTC
+# Generated at 2023-03-22 04:27:22.479232048 +0000 UTC
