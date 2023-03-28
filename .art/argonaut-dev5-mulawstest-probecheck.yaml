@@ -5,6 +5,23 @@ image: "170982004044.dkr.ecr.us-east-1.amazonaws.com/argonaut/probecheck"
 imageTag: "latest"
 
 
+services:
+  - port: 80
+    protocol: "tls-terminated" # tls-passthrough, tls-terminated, tcp, http, grpc need to be supported
+    external:
+      hosts:
+        - "google.com"
+      hostPort: 443
+      paths: ["/"]
+  - port: 90
+    protocol: "tcp" # tls-passthrough, tls-terminated, tcp, http, grpc need to be supported
+    external:
+      hostPort: 4783
+  - port: 100
+    protocol: "tcp" # tls-passthrough, tls-terminated, tcp, http, grpc need to be supported
+    external:
+      hostPort: 5692
+
 argonaut:
   env: dev5
   region: us-east-1
@@ -219,4 +236,4 @@ extraEnvs: []
 #  - name: MY_ENVIRONMENT_VAR
 #    value: the_value_goes_here
 
-# Generated at 2023-03-22 04:27:22.479232048 +0000 UTC
+# Generated at 2023-03-28 03:36:06.452439245 +0000 UTC
